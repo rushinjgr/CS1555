@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="JGR10"/>
+  <table-filter match-name="CITY"/>
+  <table-filter match-name="PLAY_IN_TEAM"/>
+  <table-filter match-name="COACH"/>
+  <table-filter match-name="TEAM"/>
+  <table-filter match-name="MANAGER"/>
+  <table-filter match-name="PLAYER"/>
+</hibernate-reverse-engineering>

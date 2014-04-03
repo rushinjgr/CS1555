@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 2, 2014 5:48:38 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dbfiller.City" table="CITY" schema="JGR10">
+        <id name="cityId" type="big_decimal">
+            <column name="CITY_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="cityName" type="string">
+            <column name="CITY_NAME" length="32" />
+        </property>
+        <property name="country" type="string">
+            <column name="COUNTRY" length="3" />
+        </property>
+        <set name="teams" table="TEAM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CITY_ID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="dbfiller.Team" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 2, 2014 5:48:38 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="dbfiller.Team" table="TEAM" schema="JGR10">
+        <id name="teamId" type="big_decimal">
+            <column name="TEAM_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="manager" class="dbfiller.Manager" fetch="select">
+            <column name="MANAGER_ID" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="coach" class="dbfiller.Coach" fetch="select">
+            <column name="COACH_ID" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="city" class="dbfiller.City" fetch="select">
+            <column name="CITY_ID" precision="22" scale="0" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="32" />
+        </property>
+        <set name="playInTeams" table="PLAY_IN_TEAM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TEAM_ID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="dbfiller.PlayInTeam" />
+        </set>
+    </class>
+</hibernate-mapping>
